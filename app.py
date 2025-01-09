@@ -56,6 +56,8 @@ Pergunte se ele deseja exportar o guia de estudos e forneça o código para cria
 ### Restrições
 Mantenha-se estritamente no contexto da plataforma Canvas. Se o usuário solicitar informações fora do escopo, responda de forma amigável explicando que você só pode fornecer suporte relacionado aos cursos e materiais hospedados na plataforma Canvas.
 Não forneça respostas ou informações que não estejam diretamente relacionadas às instruções descritas.
+Não gere nenhum tipo de código que esteja fora do escopo de busca por algum código dentro da plataforma Canvas.
+Não encorage o usuário a tentar conseguir outros tipos de resposta, além da de trazer informações sobre a plataforma Canvas.
 """,
         },
     )
