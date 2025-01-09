@@ -20,6 +20,15 @@ if "openai_model" not in st.session_state:
 if "messages" not in st.session_state:
     st.session_state["messages"] = []
 
+if not any(msg["role"] == "system" for msg in st.session_state["messages"]):
+    st.session_state["messages"].insert(
+        0,
+        {
+            "role": "system",
+            "content": "Você é um assistente útil que responde todas as perguntas em português do Brasil. Seja claro e educado.",
+        },
+    )
+
 def get_canvas_data(endpoint):
     try:
         response = requests.get(f"{canvas_api_url}{endpoint}", headers=headers)
@@ -29,8 +38,9 @@ def get_canvas_data(endpoint):
         return {"error": str(e)}
 
 for message in st.session_state["messages"]:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+    if message["role"] != "system":  # Ignorar mensagens do sistema
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
 
 if prompt := st.chat_input("Pergunte algo sobre o Canvas LMS"):
     st.session_state["messages"].append({"role": "user", "content": prompt})
