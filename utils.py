@@ -25,17 +25,6 @@ class Request:
 
     def list_courses(self, params=None):
         return self.make_request("/courses", params)
-    
-    def get_and_display_modules(self, course_id):
-        modules = self.list_modules(course_id=course_id, params={"per_page": 5})
-        if modules:
-            print("\nMódulos disponíveis:")
-            for module in modules:
-                print(f"- {module['id']}: {module['name']}")
-            return modules
-        else:
-            print("Nenhum módulo encontrado para este curso.")
-            return []
 
     def get_course_details(self, course_id, params=None):
         return self.make_request(f"/courses/{course_id}", params)
