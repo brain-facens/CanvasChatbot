@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 TOKEN = os.getenv("TOKEN_CANVAS")
-canvas_api_url = "https://facens.test.instructure.com/api/v1"
+canvas_api_url = os.getenv("CANVAS_API_URL")
 headers = {"Authorization": f"Bearer {TOKEN}"}
 
 class Request:

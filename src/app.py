@@ -2,7 +2,11 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 import uvicorn
 
+from routes import chat
+
 app = FastAPI()
+
+app.include_router(router=chat.router)
 
 @app.get("/health")
 def health():

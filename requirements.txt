@@ -1,8 +1,5 @@
 streamlit
 openai
 python-dotenv
-<<<<<<< HEAD
 fastapi
 uvicorn
-=======
->>>>>>> 92f4c2c763885686df743452b59d2d9e4786de01
