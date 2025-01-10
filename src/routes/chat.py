@@ -19,6 +19,21 @@ router = APIRouter(prefix="/chat", tags=["chat"])
 
 @router.post("/")
 async def chat(chat_data: Chat.chat_):
+    """
+    Endpoint para processar a interação do usuário com o chatbot.
+
+    Input:
+    - chat_data: 
+        - Dados da interação do usuário com o chatbot.
+    
+    Output:
+    
+    * Sucesso:
+        - Resposta do chatbot. Status code: 200
+    * Erro:
+        - Status code: 204 (Nenhum conteúdo)
+        - Status code: 500 (Erro interno do servidor)
+    """
     req = Request()
     try:
         courses = req.get_courses()
