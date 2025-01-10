@@ -25,6 +25,17 @@ class Request:
 
     def list_courses(self, params=None):
         return self.make_request("/courses", params)
+    
+    def get_and_display_modules(self, course_id):
+        modules = self.list_modules(course_id=course_id, params={"per_page": 5})
+        if modules:
+            print("\nMódulos disponíveis:")
+            for module in modules:
+                print(f"- {module['id']}: {module['name']}")
+            return modules
+        else:
+            print("Nenhum módulo encontrado para este curso.")
+            return []
 
     def get_course_details(self, course_id, params=None):
         return self.make_request(f"/courses/{course_id}", params)
@@ -36,13 +47,19 @@ class Request:
         return self.make_request(f"/courses/{course_id}/modules/{module_id}/items", params)
 
 # Função para criar um contexto inicial com a lista de cursos
-def prepare_initial_prompt(courses):
-    course_list = "\n".join([f"- {course['id']}: {course['name']}" for course in courses])
+def prepare_initial_prompt(courses, modules):
+    course_list = "\n".join([f"- {course['name']}" for course in courses])
+    modules_list = "\n".join([f"- {module['name']} (Curso: {module['course_name']})" for module in modules])
+
     return f"""
         Você é um assistente que ajuda estudantes a entenderem e gerenciarem seus cursos no Canvas LMS.
         Aqui estão os cursos disponíveis no Canvas LMS:
         {course_list}
-        **Nota importante:** Se você não encontrar a informação solicitada ou ela não existir, responda de forma clara que não encontrou a informação ou que ela não está disponível. Não forneça respostas genéricas.
+        
+        Aqui estão os módulos disponíveis nos cursos no Canvas LMS:
+        {modules_list}
+        
+        **Nota importante:** Se você não encontrar a informação solicitada ou ela não existir, responda de forma clara que não encontrou a informação ou que ela não está disponível. 
         Como posso ajudá-lo hoje?
     """
 
