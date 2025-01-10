@@ -13,8 +13,8 @@ app = FastAPI(
         "email": "eduardo.maldaner@facens.br",
     },
     license_info={
-        "name": "MIT License",
-        "url": "https://opensource.org/licenses/MIT",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
     },
     docs_url="/swagger",
     redoc_url="/redoc"
