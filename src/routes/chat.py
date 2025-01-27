@@ -1,11 +1,14 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Request, HTTPException
 from fastapi.responses import JSONResponse
+from datetime import datetime
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
 import logging
+import json
 
 from schemas import Chat
+from query import chats
 from utils import *
 
 load_dotenv()
@@ -38,7 +41,9 @@ async def chat(chat_data: Chat.chat_):
     try:
         courses = req.get_courses()
         all_modules = req.get_all_modules(courses)
+        current_datetime = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         user_message = chat_data.user_message
+        username_logged = req.get_username()
 
         if courses or all_modules:
             initial_prompt = prepare_initial_prompt(courses, all_modules)
@@ -51,6 +56,8 @@ async def chat(chat_data: Chat.chat_):
 
             # Resposta do chatbot
             response, status_code = req.get_chatbot_response(client, user_message, chat_history)
+            if response:
+                chats.Insert_chat_history(username=json.dumps(username_logged), message=json.dumps(user_message), chat_response=json.dumps(response), date=current_datetime)
             return JSONResponse(content=response, status_code=status_code)
         else:
             logger.info("Nenhum curso encontrado")

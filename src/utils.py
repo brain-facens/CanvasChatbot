@@ -18,13 +18,37 @@ class Request:
         self.module_id = None
 
     def make_request(self, endpoint, params=None):
-        url = f"{canvas_api_url}{endpoint}"
-        response = requests.get(url, headers=headers, params=params)
-        if response.status_code == 200:
+        try:
+            url = f"{canvas_api_url}{endpoint}"
+
+            # Add timeout to prevent hanging
+            response = requests.get(
+                url, 
+                headers=headers, 
+                params=params,
+                timeout=30
+            )
+
+            # Raise for bad status codes
+            response.raise_for_status()
+
             return response.json()
-        else:
-            print(f"Erro {response.status_code}: {response.text}")
+
+        except requests.exceptions.RequestException as e:
+            print(f"Request failed: {str(e)}")
             return None
+        except ValueError as e:  # JSON decode error
+            print(f"Failed to parse response: {str(e)}")
+            return None
+        
+    def get_username(self):
+        headers = {
+        "Authorization": f"Bearer {TOKEN}"
+        }
+        response = requests.get(f"{canvas_api_url}/users/self", headers=headers)
+        if response.status_code == 200:
+            user_data = response.json()
+            return user_data.get("name")
 
     def list_courses(self, params=None):
         return self.make_request("/courses", params)
@@ -39,7 +63,11 @@ class Request:
         return self.make_request(f"/courses/{course_id}/modules/{module_id}/items", params)
     
     def get_courses(self):
-        return self.list_courses(params={"per_page": 5})
+        try:
+            return self.list_courses(params={"per_page": 5})
+        except Exception as e:
+            print(f"Error fetching courses: {e}")
+            return str(e)
     
     def get_all_modules(self, courses):
         all_modules = []
