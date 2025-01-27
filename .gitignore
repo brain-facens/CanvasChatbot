@@ -2,3 +2,4 @@
 venv/
 .streamlit/
 canvas.db
+*.dump
