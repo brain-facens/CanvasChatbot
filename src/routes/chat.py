@@ -65,17 +65,3 @@ async def chat(chat_data: Chat.chat_):
     except Exception as e:
         logger.error(f"Erro: {str(e)}")
         return JSONResponse(content={"error": f"Erro interno: {str(e)}"}, status_code=500)
-    
-@router.get("/calendar")
-async def get_calendar():
-    req = Request()
-    try:
-        calendar_data = req.get_calendar()
-        if calendar_data:
-            return JSONResponse(content=calendar_data, status_code=200)
-        else:
-            logger.info("Nenhum evento encontrado no calendário")
-            return JSONResponse(content={"not found": "Nenhum evento encontrado no calendário"}, status_code=204)
-    except Exception as e:
-            logger.error(f"Erro: {str(e)}")
-            return JSONResponse(content={"error": f"Erro interno: {str(e)}"}, status_code=500)
