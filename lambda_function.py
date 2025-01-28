@@ -1,6 +1,9 @@
 import json
 import logging
 import os
+import sqlite3
+import locale
+from datetime import datetime
 import sys
 
 sys.path.append(os.path.abspath("./package"))
@@ -9,6 +12,7 @@ import requests as requests
 from openai import OpenAI
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+DB_HOST = os.getenv("DB_HOST")
 
 client = None
 
@@ -20,6 +24,57 @@ headers = {"Authorization": f"Bearer {TOKEN}"}
 
 logger = logging.getLogger(__name__)
 
+locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+
+def Insert_chat_history(username: str, message: str, chat_response: str, date: str):
+    try:
+        conn = sqlite3.connect(DB_HOST)
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO chat_history (username, message, chat_response, date) VALUES (?, ?, ?, ?)", (username, message, chat_response, date))
+        conn.commit()
+    except sqlite3.Error as e:
+        raise Exception(f"Database error: {str(e)}")
+    except Exception as e:
+        raise Exception(f"Error inserting document: {str(e)}")
+    finally:
+        if 'conn' in locals():
+            conn.close()
+
+def parse_date_friendly(date_string):
+    """
+    Converte uma data amigável, como '31 de janeiro', para o formato ISO (YYYY-MM-DD).
+    Se a data não for válida, retorna None.
+
+    Args:
+        date_string (str): Data fornecida pelo usuário.
+
+    Returns:
+        str: Data em formato ISO, ou None se a conversão falhar.
+    """
+    try:
+        # Mapeamento dos meses em português para números
+        meses = {
+            "janeiro": "01", "fevereiro": "02", "março": "03", "abril": "04", "maio": "05", "junho": "06",
+            "julho": "07", "agosto": "08", "setembro": "09", "outubro": "10", "novembro": "11", "dezembro": "12"
+        }
+
+        # Divide a string de entrada
+        partes = date_string.lower().strip().split(" de ")
+        if len(partes) != 2:
+            raise ValueError("Formato de data inválido")
+
+        dia = partes[0]
+        mes = meses.get(partes[1])
+        if not dia.isdigit() or not mes:
+            raise ValueError("Dia ou mês inválido")
+
+        # Retorna a data no formato ISO
+        ano_atual = datetime.now().year
+        return f"{ano_atual}-{mes}-{int(dia):02d}"
+    except Exception as e:
+        logger.error(f"Erro ao interpretar a data '{date_string}': {str(e)}")
+        return None
+
 class Request:
     def __init__(self):
         self.params = None
@@ -27,13 +82,65 @@ class Request:
         self.module_id = None
 
     def make_request(self, endpoint, params=None):
-        url = f"{canvas_api_url}{endpoint}"
-        response = requests.get(url, headers=headers, params=params)
-        if response.status_code == 200:
+        try:
+            url = f"{canvas_api_url}{endpoint}"
+
+            # Add timeout to prevent hanging
+            response = requests.get(
+                url, 
+                headers=headers, 
+                params=params,
+                timeout=30
+            )
+
+            # Raise for bad status codes
+            response.raise_for_status()
+
             return response.json()
-        else:
-            print(f"Erro {response.status_code}: {response.text}")
+
+        except requests.exceptions.RequestException as e:
+            print(f"Request failed: {str(e)}")
             return None
+        except ValueError as e:  # JSON decode error
+            print(f"Failed to parse response: {str(e)}")
+            return None
+        
+    def get_calendar(self):
+        headers = {
+        "Authorization": f"Bearer {TOKEN}"
+        }
+        response = requests.get(f"{canvas_api_url}/calendar_events?start_date=2025-01-01&end_date=2025-12-31", headers=headers)
+        if response.status_code == 200:
+            user_data = response.json()
+            return user_data
+        
+    def get_calendar_events(self, title_filter=None, date_filter=None):
+        try:
+            events = self.get_calendar()
+
+            # Filtra os eventos pelo título ou pela data, se fornecidos
+            filtered_events = []
+            for event in events:
+                title_matches = title_filter.lower() in event["title"].lower() if title_filter else True
+                date_matches = date_filter in event["start_at"] if date_filter else True
+
+                if title_matches and date_matches:
+                    filtered_events.append(event)
+
+            return filtered_events
+
+        except Exception as e:
+            logger.error(f"Erro ao buscar eventos do calendário: {str(e)}")
+            return []
+
+    def get_username(self):
+        headers = {
+        "Authorization": f"Bearer {TOKEN}"
+        }
+        response = requests.get(f"{canvas_api_url}/users/self", headers=headers)
+        if response.status_code == 200:
+            user_data = response.json()
+            return user_data.get("name")
 
     def list_courses(self, params=None):
         return self.make_request("/courses", params)
@@ -48,7 +155,11 @@ class Request:
         return self.make_request(f"/courses/{course_id}/modules/{module_id}/items", params)
     
     def get_courses(self):
-        return self.list_courses(params={"per_page": 5})
+        try:
+            return self.list_courses(params={"per_page": 5})
+        except Exception as e:
+            print(f"Error fetching courses: {e}")
+            return str(e)
     
     def get_all_modules(self, courses):
         all_modules = []
@@ -76,12 +187,42 @@ class Request:
             else:
                 logger.info("Curso não encontrado")
                 return {"not found": "Curso não encontrado"}, 204
-        return None, None
-    
-    def get_chatbot_response(self, client, user_message, chat_history):
-        response, _ = interact_with_chatbot(client=client, user_message=user_message, chat_history=chat_history)
-        logger.info(f"Chatbot: {response}")
-        return {"message": response}, 200
+        current_datetime = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        username_logged = self.get_username()
+        if user_message.lower().startswith("aulas no calendário"):
+            # Extrai a parte do título e da data
+            parts = user_message[len("aulas no calendário"):].strip().split(" no dia ")
+            title_filter = parts[0].strip() if len(parts) > 0 else None
+            date_friendly = parts[1].strip() if len(parts) > 1 else None
+
+            # Converte a data amigável para o formato ISO
+            date_filter = parse_date_friendly(date_friendly) if date_friendly else None
+
+            # Busca eventos no calendário
+            events = self.get_calendar_events(title_filter=title_filter, date_filter=date_filter)
+
+            if events:
+                # Formata a resposta com os eventos encontrados
+                response = "\n".join([
+                    f"- {event['title']} em {event['start_at']} (local: {event.get('location_name', 'não especificado')})"
+                    for event in events
+                ])
+                Insert_chat_history(
+                    username=username_logged,
+                    message=user_message,
+                    chat_response=f"Aulas encontradas:\n{response}",
+                    date=current_datetime
+                )
+                return {"message": f"Aulas encontradas:\n{response}"}, 200
+            else:
+                response = "Nenhuma aula encontrada com os critérios especificados."
+                Insert_chat_history(
+                    username=username_logged,
+                    message=user_message,
+                    chat_response=response,
+                    date=current_datetime
+                )
+                return {"not found": response}, 204
 
 # Função para criar um contexto inicial com a lista de cursos
 def prepare_initial_prompt(courses, modules):
