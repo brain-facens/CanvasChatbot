@@ -82,5 +82,5 @@ def data_batch_and_inference(assistant_id):
         print(f"{message_content.value}\n")
 
 if __name__ == '__main__':
-    assistant = assistant(client)
-    #data_batch_and_inference("asst_9HF127l482zdHoWsbYcnJ38D")
+    #assistant = assistant(client)
+    data_batch_and_inference("asst_VWFEqFIlOolIqD5OxQZSbLT1")
