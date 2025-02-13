@@ -1,6 +1,5 @@
 import os
-from typing_extensions import override
-from openai import AssistantEventHandler, OpenAI
+from openai import OpenAI
 
 client = OpenAI()
 
@@ -29,7 +28,7 @@ def assistant(client):
         name = "Educational Assistant",
         description = description,
         instructions = instruction,
-        model = "gpt-4-turbo",
+        model = "gpt-4o-mini",
         tools = [{"type": "file_search"}],
     )
 
@@ -83,5 +82,5 @@ def data_batch_and_inference(assistant_id):
         print(f"{message_content.value}\n")
 
 if __name__ == '__main__':
-    #assistant = assistant(client)
-    data_batch_and_inference("asst_9HF127l482zdHoWsbYcnJ38D")
+    assistant = assistant(client)
+    #data_batch_and_inference("asst_9HF127l482zdHoWsbYcnJ38D")

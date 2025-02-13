@@ -1,0 +1,1089 @@
+Como conectar ao WI-FI Alunos – Start Facens
+Ir para o conteúdo
+Início
+Acadêmico
+Ambiente Virtual de Aprendizagem
+Aulas Virtuais
+Biblioteca
+Calendário Acadêmico
+Portal Acadêmico
+Administrativo
+Estágio
+Financeiro
+Rematrícula
+Para o Aluno
+Aplicativos Facens
+Impressões
+Laboratórios
+Laboratórios de Informática
+Saiba Mais Facens
+Menu
+Início
+Acadêmico
+Ambiente Virtual de Aprendizagem
+Aulas Virtuais
+Biblioteca
+Calendário Acadêmico
+Portal Acadêmico
+Administrativo
+Estágio
+Financeiro
+Rematrícula
+Para o Aluno
+Aplicativos Facens
+Impressões
+Laboratórios
+Laboratórios de Informática
+Saiba Mais Facens
+Como conectar ao WI-FI Alunos
+Passo a passo para conectar seus dispositivos Android e iOS à rede Wi-Fi do campus. Siga as instruções abaixo para garantir uma conexão estável e segura à internet.
+Configuração para Celulares Android
+#
+Método EAP:
+PEAP
+Autenticação da Fase 2:
+MSCHAPV2
+Certificado CA:
+Não Validar Certificado Android
+Identidade:
+RA
+Identidade Anônima:
+(Não Necessário)
+Senha:
+senha dos acessos (Canvas, portal acadêmico)
+Donwload certificado WI-FI – Android
+#
+Alguns aparelhos Android podem solicitar certificado, realize
+o download e siga as instruções abaixo:
+Link de download do certificado:
+Certificado WI-FI
+Configuração manual do certificado WI-FI – Android
+#
+1 – Baixe no seu dispositivo o certificado da CA (Autoridade certificadora);
+2 – Nesse ponto, pode ser que o dispositivo não dê a opção de instalar, desta forma terá que ser feito
+manualmente acessando: “Configurações” > “Senhas e seguranças” > “Privacidade” > “Criptografia e
+credenciais” > “Instalar um certificado” > “Certificado” > Selecione o certificado que acabou de baixar:
+Certificado de Rede Wifi.crt e pule para o passo 4.
+3 – Na caixa de diálogo, escolha a opção “Abrir com instalador de certificado”;
+4 – Em seguida, você será solicitado a nomear o certificado e identificar como ele deve ser usado.
+No campo: Nome do certificado, digite “Facens” e escolha Wi-Fi na lista suspensa;
+5 – Após instalar o certificado, acesse a rede WIFI-ALUNOS completando as
+informações conforme abaixo:
+WI-FI ALUNOS:
+Método EAP:
+PEAP
+Identidade:
+RA
+Identidade Anônima:
+(Não preencher)
+Senha:
+senha escolhida por você
+Certificado CA:
+Facens
+Status do Certificado online:
+Não validar
+Domínio:
+labinfo.facens.br
+Configuração para Dispositivos IOS
+#
+Nome de usuário:
+RA
+Senha:
+senha dos acessos (Canvas, portal acadêmico)
+Após clicar em conectar será solicitado a permissão de uso do certificado de rede.
+Seguindo estas etapas, você estará conectado à rede Wi-Fi da Facens e poderá acessar todos os recursos online necessários para seus estudos. Se encontrar algum problema, entre em contato com o Laboratório de Informática (Prédio A).
+Sumário
+Configuração para Celulares Android
+Donwload certificado WI-FI - Android
+Configuração manual do certificado WI-FI - Android
+Configuração para Dispositivos IOS
+Acadêmico
+37
+Ambiente Virtual de Aprendizagem
+Componentes curriculares não publicados no Canvas
+Como favoritar os componentes curriculares no Canvas
+Como enviar uma Atividade ou Tarefa
+Como acessar componentes curriculares passados
+Acesso ao Fórum
+Aulas Virtuais
+Instalando e utilizando o Teams no computador
+Compartilhando a tela no Teams
+Como ativar legendas ao vivo no Teams
+Como acessar as Aulas Virtuais
+Acessando a aula do Teams pelo navegador
+Acessando a aula do Teams pelo aplicativo mobile
+Biblioteca
+Treinamentos Biblioteca
+Termo de disponibilização TCC/Monografia
+Submissão de UPX
+Submissão de TCC/Monografia
+Revistas Digitais
+Perguntas Frequentes – Biblioteca
+Calendário Acadêmico
+Horário das aulas – Graduação
+Calendário Acadêmico
+Portal Acadêmico
+Sistema de Avaliação
+Portal Acadêmico
+Declaração de Matrícula – Portal Acadêmico
+Aproveitamento de Estudos
+Acompanhar Solicitação/Protocolo – Portal Acadêmico
+Administrativo
+8
+Estágio
+Carreiras/Estágio
+Alumni Facens
+Financeiro
+Negociação Online
+Bolsas e Financiamentos
+Boletos e Pagamentos
+Rematrícula
+Protocolos de Rematrícula
+Protocolo Turmas Especiais
+Como fazer a sua rematricula
+Para o Aluno
+25
+Aplicativos Facens
+Acesso ao aplicativo Facens
+Acesso ao aplicativo Canvas Student
+Impressões
+Impressão pelo Celular/Computador
+Laboratórios
+Smart Campus Facens
+LIS – Laboratório de Inovação Social
+LINCE – Laboratório de Inovação e Competições Estudantis
+LIGA – Facens
+FABLAB
+Laboratórios de Informática
+Regulamento do Laboratório de Informática – LI
+Redefinição de senha – Acessos Facens
+Informações aos alunos – Laboratório de Informática
+Convênios de Software para Estudantes
+Como limpar o Cache do navegador
+Como conectar ao WI-FI Alunos
+Saiba Mais Facens
+Sustentabilidade Facens
+Smart Mall Facens
+Ouvidoria!
+NCursos
+IPFacens
+Indústria 4.0Como limpar o Cache do navegador – Start Facens
+Ir para o conteúdo
+Início
+Acadêmico
+Ambiente Virtual de Aprendizagem
+Aulas Virtuais
+Biblioteca
+Calendário Acadêmico
+Portal Acadêmico
+Administrativo
+Estágio
+Financeiro
+Rematrícula
+Para o Aluno
+Aplicativos Facens
+Impressões
+Laboratórios
+Laboratórios de Informática
+Saiba Mais Facens
+Menu
+Início
+Acadêmico
+Ambiente Virtual de Aprendizagem
+Aulas Virtuais
+Biblioteca
+Calendário Acadêmico
+Portal Acadêmico
+Administrativo
+Estágio
+Financeiro
+Rematrícula
+Para o Aluno
+Aplicativos Facens
+Impressões
+Laboratórios
+Laboratórios de Informática
+Saiba Mais Facens
+Como limpar o Cache do navegador
+Introdução
+#
+O cache é um armazenamento temporário que guarda dados e arquivos frequentemente acessados, facilitando o acesso rápido a esses recursos. No entanto, com o tempo, esses dados podem se acumular e causar lentidão, erros de carregamento e outros problemas de desempenho.
+Ao limpar o cache regularmente, você garante que seus dispositivos funcionem de maneira mais eficiente, liberando espaço de armazenamento e resolvendo possíveis problemas técnicos.
+Navegador
+#
+Google Chrome
+#
+Abra o Chrome
+.
+Clique nos três pontos verticais
+no canto superior direito.
+Selecione “Mais ferramentas”
+>
+“Limpar dados de navegação”
+.
+Na janela que se abre, escolha o
+intervalo de tempo
+desejado.
+Marque a opção “Imagens e arquivos armazenados em cache”
+.
+Clique em “Limpar dados”
+.
+Firefox
+#
+Abra o Firefox
+.
+Clique nas três linhas horizontais
+no canto superior direito.
+Selecione “Configurações”
+.
+Vá para “Privacidade e Segurança”
+.
+Na seção “Cookies e dados do site”,
+clique em “Limpar dados”
+.
+Marque “Conteúdo web em cache”
+.
+Clique em “Limpar”
+.
+Microsoft Edge
+#
+Abra o Edge
+.
+Clique nos três pontos horizontais
+no canto superior direito.
+Selecione “Configurações”
+.
+Vá para “Privacidade, pesquisa e serviços”
+.
+Em “Limpar dados de navegação”,
+clique em “Escolher o que limpar”
+.
+Marque “Imagens e arquivos em cache”
+.
+Clique em “Limpar agora”
+.
+Dispositivos Android
+#
+Abra o app “Configurações”
+no seu dispositivo Android.
+Toque em “Armazenamento”
+.
+Toque em “Outros apps”
+ou “Armazenamento interno” e depois em “Apps” (pode variar dependendo do dispositivo).
+Selecione o aplicativo
+cujo cache você deseja limpar.
+Toque em “Limpar cache”
+.
+Dispositivos IOS
+#
+Abra o app “Ajustes”
+no seu iPhone.
+Desça e toque em “Safari”
+(para limpar o cache do Safari).
+Toque em “Limpar Histórico e Dados dos Sites”
+.
+Confirme tocando em “Limpar Histórico e Dados”
+.
+Sumário
+Introdução
+Navegador
+Google Chrome
+Firefox
+Microsoft Edge
+Dispositivos Android
+Dispositivos IOS
+Acadêmico
+37
+Ambiente Virtual de Aprendizagem
+Componentes curriculares não publicados no Canvas
+Como favoritar os componentes curriculares no Canvas
+Como enviar uma Atividade ou Tarefa
+Como acessar componentes curriculares passados
+Acesso ao Fórum
+Aulas Virtuais
+Instalando e utilizando o Teams no computador
+Compartilhando a tela no Teams
+Como ativar legendas ao vivo no Teams
+Como acessar as Aulas Virtuais
+Acessando a aula do Teams pelo navegador
+Acessando a aula do Teams pelo aplicativo mobile
+Biblioteca
+Treinamentos Biblioteca
+Termo de disponibilização TCC/Monografia
+Submissão de UPX
+Submissão de TCC/Monografia
+Revistas Digitais
+Perguntas Frequentes – Biblioteca
+Calendário Acadêmico
+Horário das aulas – Graduação
+Calendário Acadêmico
+Portal Acadêmico
+Sistema de Avaliação
+Portal Acadêmico
+Declaração de Matrícula – Portal Acadêmico
+Aproveitamento de Estudos
+Acompanhar Solicitação/Protocolo – Portal Acadêmico
+Administrativo
+8
+Estágio
+Carreiras/Estágio
+Alumni Facens
+Financeiro
+Negociação Online
+Bolsas e Financiamentos
+Boletos e Pagamentos
+Rematrícula
+Protocolos de Rematrícula
+Protocolo Turmas Especiais
+Como fazer a sua rematricula
+Para o Aluno
+25
+Aplicativos Facens
+Acesso ao aplicativo Facens
+Acesso ao aplicativo Canvas Student
+Impressões
+Impressão pelo Celular/Computador
+Laboratórios
+Smart Campus Facens
+LIS – Laboratório de Inovação Social
+LINCE – Laboratório de Inovação e Competições Estudantis
+LIGA – Facens
+FABLAB
+Laboratórios de Informática
+Regulamento do Laboratório de Informática – LI
+Redefinição de senha – Acessos Facens
+Informações aos alunos – Laboratório de Informática
+Convênios de Software para Estudantes
+Como limpar o Cache do navegador
+Como conectar ao WI-FI Alunos
+Saiba Mais Facens
+Sustentabilidade Facens
+Smart Mall Facens
+Ouvidoria!
+NCursos
+IPFacens
+Indústria 4.0Convênios de Software para Estudantes – Start Facens
+Ir para o conteúdo
+Início
+Acadêmico
+Ambiente Virtual de Aprendizagem
+Aulas Virtuais
+Biblioteca
+Calendário Acadêmico
+Portal Acadêmico
+Administrativo
+Estágio
+Financeiro
+Rematrícula
+Para o Aluno
+Aplicativos Facens
+Impressões
+Laboratórios
+Laboratórios de Informática
+Saiba Mais Facens
+Menu
+Início
+Acadêmico
+Ambiente Virtual de Aprendizagem
+Aulas Virtuais
+Biblioteca
+Calendário Acadêmico
+Portal Acadêmico
+Administrativo
+Estágio
+Financeiro
+Rematrícula
+Para o Aluno
+Aplicativos Facens
+Impressões
+Laboratórios
+Laboratórios de Informática
+Saiba Mais Facens
+Convênios de Software para Estudantes
+A Facens possui aos seus estudantes uma série de convênios com grandes empresas de tecnologia, como Microsoft e Autodesk.
+Esses convênios permitem o acesso a uma variedade de softwares essenciais para o desenvolvimento acadêmico e profissional dos alunos, oferecendo ferramentas que são amplamente utilizadas nas indústrias.
+Acesso
+#
+Para acessar a plataforma de solicitação de Convênios da Facens, acesse o link a seguir:
+Convênio
+O acesso é realizado com seu RA e senha.
+Após o login, as opções de solicitação estarão disponíveis.
+Softwares Inclusos
+#
+Microsoft Azure
+#
+Através do convênio com a Microsoft, os estudantes têm acesso ao Microsoft Azure, uma plataforma de serviços de computação em nuvem que suporta a criação, teste, implementação e gerenciamento de aplicativos e serviços. Além do Azure, outros softwares disponíveis incluem
+Windows
+: Sistema operacional amplamente utilizado em ambientes empresariais e acadêmicos.
+Project
+: Ferramenta de gerenciamento de projetos que ajuda a planejar, executar e acompanhar o progresso dos projetos.
+Visio
+: Software de diagramação e fluxogramas, útil para criar diagramas profissionais e modelos.
+Visual Studio
+: Ambiente de desenvolvimento integrado (IDE) que suporta diversas linguagens de programação e é ideal para o desenvolvimento de aplicativos.
+Autodesk
+#
+O convênio com a Autodesk proporciona aos estudantes acesso a softwares de design e engenharia de alta qualidade, incluindo:
+3DS Max
+: Ferramenta para modelagem, animação e renderização em 3D, amplamente utilizada em design de jogos, filmes e visualização arquitetônica.
+Revit
+: Software de modelagem de informações de construção (BIM) para arquitetos, engenheiros e construtores.
+AutoCAD
+: Ferramenta essencial para desenho técnico e modelagem em 2D e 3D.
+Office 365 Estudante
+#
+Além dos softwares mencionados, os estudantes também têm acesso ao Office 365 Estudante, que inclui aplicativos essenciais como:
+Word
+: Processador de texto para criação e edição de documentos.
+Excel
+: Ferramenta de planilhas para análise de dados e criação de gráficos.
+PowerPoint
+: Programa para criação de apresentações impactantes.
+OneNote
+: Aplicativo para tomar notas e organizar informações.
+Power BI
+#
+Os estudantes também podem utilizar o Power BI, uma ferramenta de análise de negócios que permite transformar dados em insights interativos e visualizações detalhadas, facilitando a tomada de decisões informadas.
+Outros Softwares Disponíveis
+#
+Além desses, os estudantes podem explorar outras ferramentas e serviços disponíveis através dos convênios, como:
+GitHub Student Developer Pack
+: Acesso gratuito a várias ferramentas de desenvolvimento e software.
+VMware
+: Softwares de virtualização e gerenciamento de infraestrutura.
+Spotify Premium para Estudantes
+: Como parte dos benefícios disponíveis para estudantes, o Spotify oferece um plano de assinatura especial que permite que estudantes universitários tenham acesso a todos os recursos do Spotify Premium com um desconto significativo.
+Entre outros…
+Sumário
+Acesso
+Softwares Inclusos
+Microsoft Azure
+Autodesk
+Office 365 Estudante
+Power BI
+Outros Softwares Disponíveis
+Acadêmico
+37
+Ambiente Virtual de Aprendizagem
+Componentes curriculares não publicados no Canvas
+Como favoritar os componentes curriculares no Canvas
+Como enviar uma Atividade ou Tarefa
+Como acessar componentes curriculares passados
+Acesso ao Fórum
+Aulas Virtuais
+Instalando e utilizando o Teams no computador
+Compartilhando a tela no Teams
+Como ativar legendas ao vivo no Teams
+Como acessar as Aulas Virtuais
+Acessando a aula do Teams pelo navegador
+Acessando a aula do Teams pelo aplicativo mobile
+Biblioteca
+Treinamentos Biblioteca
+Termo de disponibilização TCC/Monografia
+Submissão de UPX
+Submissão de TCC/Monografia
+Revistas Digitais
+Perguntas Frequentes – Biblioteca
+Calendário Acadêmico
+Horário das aulas – Graduação
+Calendário Acadêmico
+Portal Acadêmico
+Sistema de Avaliação
+Portal Acadêmico
+Declaração de Matrícula – Portal Acadêmico
+Aproveitamento de Estudos
+Acompanhar Solicitação/Protocolo – Portal Acadêmico
+Administrativo
+8
+Estágio
+Carreiras/Estágio
+Alumni Facens
+Financeiro
+Negociação Online
+Bolsas e Financiamentos
+Boletos e Pagamentos
+Rematrícula
+Protocolos de Rematrícula
+Protocolo Turmas Especiais
+Como fazer a sua rematricula
+Para o Aluno
+25
+Aplicativos Facens
+Acesso ao aplicativo Facens
+Acesso ao aplicativo Canvas Student
+Impressões
+Impressão pelo Celular/Computador
+Laboratórios
+Smart Campus Facens
+LIS – Laboratório de Inovação Social
+LINCE – Laboratório de Inovação e Competições Estudantis
+LIGA – Facens
+FABLAB
+Laboratórios de Informática
+Regulamento do Laboratório de Informática – LI
+Redefinição de senha – Acessos Facens
+Informações aos alunos – Laboratório de Informática
+Convênios de Software para Estudantes
+Como limpar o Cache do navegador
+Como conectar ao WI-FI Alunos
+Saiba Mais Facens
+Sustentabilidade Facens
+Smart Mall Facens
+Ouvidoria!
+NCursos
+IPFacens
+Indústria 4.0Informações aos alunos – Laboratório de Informática – Start Facens
+Ir para o conteúdo
+Início
+Acadêmico
+Ambiente Virtual de Aprendizagem
+Aulas Virtuais
+Biblioteca
+Calendário Acadêmico
+Portal Acadêmico
+Administrativo
+Estágio
+Financeiro
+Rematrícula
+Para o Aluno
+Aplicativos Facens
+Impressões
+Laboratórios
+Laboratórios de Informática
+Saiba Mais Facens
+Menu
+Início
+Acadêmico
+Ambiente Virtual de Aprendizagem
+Aulas Virtuais
+Biblioteca
+Calendário Acadêmico
+Portal Acadêmico
+Administrativo
+Estágio
+Financeiro
+Rematrícula
+Para o Aluno
+Aplicativos Facens
+Impressões
+Laboratórios
+Laboratórios de Informática
+Saiba Mais Facens
+Informações aos alunos – Laboratório de Informática
+Regimento de uso (resumo)
+#
+Não consumir bebidas e alimentos nos laboratórios.
+Não acessar pornografia e conteúdos impróprios.
+O RA é pessoal e não pode ser emprestado.
+Utilize a nuvem ou pendrive para salvar os seus arquivos.
+Para usar o laboratório, verifique se há salas liberadas para uso.
+Impressões
+#
+Sistema automático de impressões (só é liberada com crédito no RA).
+Compra de créditos apenas na TESOURARIA.
+Somente o proprietário da impressão pode retirá-la.
+Apenas serão impressos arquivos PDF e imagens.
+Sumário
+Regimento de uso (resumo)
+Impressões
+Acadêmico
+37
+Ambiente Virtual de Aprendizagem
+Componentes curriculares não publicados no Canvas
+Como favoritar os componentes curriculares no Canvas
+Como enviar uma Atividade ou Tarefa
+Como acessar componentes curriculares passados
+Acesso ao Fórum
+Aulas Virtuais
+Instalando e utilizando o Teams no computador
+Compartilhando a tela no Teams
+Como ativar legendas ao vivo no Teams
+Como acessar as Aulas Virtuais
+Acessando a aula do Teams pelo navegador
+Acessando a aula do Teams pelo aplicativo mobile
+Biblioteca
+Treinamentos Biblioteca
+Termo de disponibilização TCC/Monografia
+Submissão de UPX
+Submissão de TCC/Monografia
+Revistas Digitais
+Perguntas Frequentes – Biblioteca
+Calendário Acadêmico
+Horário das aulas – Graduação
+Calendário Acadêmico
+Portal Acadêmico
+Sistema de Avaliação
+Portal Acadêmico
+Declaração de Matrícula – Portal Acadêmico
+Aproveitamento de Estudos
+Acompanhar Solicitação/Protocolo – Portal Acadêmico
+Administrativo
+8
+Estágio
+Carreiras/Estágio
+Alumni Facens
+Financeiro
+Negociação Online
+Bolsas e Financiamentos
+Boletos e Pagamentos
+Rematrícula
+Protocolos de Rematrícula
+Protocolo Turmas Especiais
+Como fazer a sua rematricula
+Para o Aluno
+25
+Aplicativos Facens
+Acesso ao aplicativo Facens
+Acesso ao aplicativo Canvas Student
+Impressões
+Impressão pelo Celular/Computador
+Laboratórios
+Smart Campus Facens
+LIS – Laboratório de Inovação Social
+LINCE – Laboratório de Inovação e Competições Estudantis
+LIGA – Facens
+FABLAB
+Laboratórios de Informática
+Regulamento do Laboratório de Informática – LI
+Redefinição de senha – Acessos Facens
+Informações aos alunos – Laboratório de Informática
+Convênios de Software para Estudantes
+Como limpar o Cache do navegador
+Como conectar ao WI-FI Alunos
+Saiba Mais Facens
+Sustentabilidade Facens
+Smart Mall Facens
+Ouvidoria!
+NCursos
+IPFacens
+Indústria 4.0Redefinição de senha – Acessos Facens – Start Facens
+Ir para o conteúdo
+Início
+Acadêmico
+Ambiente Virtual de Aprendizagem
+Aulas Virtuais
+Biblioteca
+Calendário Acadêmico
+Portal Acadêmico
+Administrativo
+Estágio
+Financeiro
+Rematrícula
+Para o Aluno
+Aplicativos Facens
+Impressões
+Laboratórios
+Laboratórios de Informática
+Saiba Mais Facens
+Menu
+Início
+Acadêmico
+Ambiente Virtual de Aprendizagem
+Aulas Virtuais
+Biblioteca
+Calendário Acadêmico
+Portal Acadêmico
+Administrativo
+Estágio
+Financeiro
+Rematrícula
+Para o Aluno
+Aplicativos Facens
+Impressões
+Laboratórios
+Laboratórios de Informática
+Saiba Mais Facens
+Redefinição de senha – Acessos Facens
+Com o objetivo de garantir a segurança e a privacidade das informações dos nossos alunos, professores e funcionários foi desenvolvido um sistema para simplificar o processo de redefinição de senhas e assegurar que todos os usuários possam acessar seus recursos acadêmicos e administrativos.
+Site
+#
+Para realizar a troca de senha acesse o seguinte link:
+Troca Senha
+Alteração de senha
+#
+Para redefinir sua senha, insira seu usuário e CPF. O sistema enviará um link para que você possa alterar a senha utilizada para acessar o Portal.
+Observações
+#
+Lembrando que após a troca da senha, os sistemas demoram até
+30 minutos
+para sincronizar todos os acessos.
+Sumário
+Site
+Alteração de senha
+Observações
+Acadêmico
+37
+Ambiente Virtual de Aprendizagem
+Componentes curriculares não publicados no Canvas
+Como favoritar os componentes curriculares no Canvas
+Como enviar uma Atividade ou Tarefa
+Como acessar componentes curriculares passados
+Acesso ao Fórum
+Aulas Virtuais
+Instalando e utilizando o Teams no computador
+Compartilhando a tela no Teams
+Como ativar legendas ao vivo no Teams
+Como acessar as Aulas Virtuais
+Acessando a aula do Teams pelo navegador
+Acessando a aula do Teams pelo aplicativo mobile
+Biblioteca
+Treinamentos Biblioteca
+Termo de disponibilização TCC/Monografia
+Submissão de UPX
+Submissão de TCC/Monografia
+Revistas Digitais
+Perguntas Frequentes – Biblioteca
+Calendário Acadêmico
+Horário das aulas – Graduação
+Calendário Acadêmico
+Portal Acadêmico
+Sistema de Avaliação
+Portal Acadêmico
+Declaração de Matrícula – Portal Acadêmico
+Aproveitamento de Estudos
+Acompanhar Solicitação/Protocolo – Portal Acadêmico
+Administrativo
+8
+Estágio
+Carreiras/Estágio
+Alumni Facens
+Financeiro
+Negociação Online
+Bolsas e Financiamentos
+Boletos e Pagamentos
+Rematrícula
+Protocolos de Rematrícula
+Protocolo Turmas Especiais
+Como fazer a sua rematricula
+Para o Aluno
+25
+Aplicativos Facens
+Acesso ao aplicativo Facens
+Acesso ao aplicativo Canvas Student
+Impressões
+Impressão pelo Celular/Computador
+Laboratórios
+Smart Campus Facens
+LIS – Laboratório de Inovação Social
+LINCE – Laboratório de Inovação e Competições Estudantis
+LIGA – Facens
+FABLAB
+Laboratórios de Informática
+Regulamento do Laboratório de Informática – LI
+Redefinição de senha – Acessos Facens
+Informações aos alunos – Laboratório de Informática
+Convênios de Software para Estudantes
+Como limpar o Cache do navegador
+Como conectar ao WI-FI Alunos
+Saiba Mais Facens
+Sustentabilidade Facens
+Smart Mall Facens
+Ouvidoria!
+NCursos
+IPFacens
+Indústria 4.0Regulamento do Laboratório de Informática – LI – Start Facens
+Ir para o conteúdo
+Início
+Acadêmico
+Ambiente Virtual de Aprendizagem
+Aulas Virtuais
+Biblioteca
+Calendário Acadêmico
+Portal Acadêmico
+Administrativo
+Estágio
+Financeiro
+Rematrícula
+Para o Aluno
+Aplicativos Facens
+Impressões
+Laboratórios
+Laboratórios de Informática
+Saiba Mais Facens
+Menu
+Início
+Acadêmico
+Ambiente Virtual de Aprendizagem
+Aulas Virtuais
+Biblioteca
+Calendário Acadêmico
+Portal Acadêmico
+Administrativo
+Estágio
+Financeiro
+Rematrícula
+Para o Aluno
+Aplicativos Facens
+Impressões
+Laboratórios
+Laboratórios de Informática
+Saiba Mais Facens
+Regulamento do Laboratório de Informática – LI
+Regulamento
+#
+O Diretor do Centro Universitário Facens, no uso de suas competências e demais disposições legais, aprova e torna público o regulamento.
+Introdução
+#
+O Laboratório de Informática é um provedor de recursos e serviços para realização de aulas,
+realização de trabalhos tendo o microcomputador como ferramenta e suporte técnico para todos
+os departamentos do centro universitário Facens. É constituído de um espaço físico com
+equipamentos de informática interligados por meio de rede local, dispostos em salas de aula e
+estudo para utilização por alunos apenas para fins acadêmicos. Para maiores informações consultar
+um colaborador do Laboratório de Informática.
+Responsabilidade e Comportamento
+#
+Responsabilidade
+#
+Durante a utilização de um equipamento a responsabilidade sobre o hardware e o
+software instalado é de seu usuário. Qualquer problema ou defeito deve ser comunicado
+imediatamente ao professor ou aos técnicos do laboratório.
+Os danos causados aos equipamentos e/ou as configurações alteradas serão submetidas
+a análise e, nos casos em que se concluir que a origem do problema foi dada por atitudes
+indevidas, serão atribuídas as penalidades determinadas pelo centro universitário, que
+podem ser a suspensão temporária do uso do laboratório pelo aluno, o pagamento de multas
+ou outra aplicável de acordo com este regulamento.
+Comportamento
+#
+Por se tratar de um ambiente onde ocorrem aulas e estudos concorrentemente, a
+ordem deve ser mantida para que os alunos de outras salas não sejam incomodados.
+Horários
+#
+O Laboratório de Informática funciona diariamente, de 2ª feira à 6ª feira, das 7:30h às 23:00h
+e aos sábados das 8:00h às 17:00h, durante o período letivo. Nos demais períodos, o horário será
+definido pela coordenação do laboratório.
+Utilização
+#
+Aulas de Laboratório
+#
+As aulas são agendadas no início do ano letivo para dias, horários e salas específicos,
+sendo que existem matérias que utilizam frequentemente o laboratório e existem matérias
+que utilizam esporadicamente o laboratório. Estas últimas precisam ser confirmadas com
+pelo menos uma semana de antecedência pelo respectivo professor.
+Os alunos devem aguardar o professor com o máximo de silêncio possível para não
+incomodar alunos e professores em aula.
+Não é permitida a permanência no corredor do
+laboratório além do tempo de ir até a respectiva sala de aula.
+Utilização individual
+#
+O acesso aos computadores do laboratório deve ser feito com a conta “aluno”, com
+senha pré-definida informada em cada laboratório.
+Os alunos que desejarem utilizar o laboratório além do seu horário de aula para
+realização de trabalhos ou para estudar, podem utilizar salas que estejam disponíveis, sem
+aula. Não é permitida a utilização de outra sala que não esteja aberta para utilização pelos
+técnicos.
+O laboratório não se responsabiliza por trabalhos não realizados devido à falta de
+equipamentos.
+Restrições e proibições
+#
+Algumas restrições e proibições são feitas quanto à utilização dos equipamentos e do
+laboratório para certos fins:
+É proibido comer, beber ou fumar no interior do laboratório.
+É pedido que os alunos cooperem com o silêncio nas aulas e não façam ou provoquem
+algazarra no laboratório.
+É proibida a permanência de qualquer aluno na Sala de Controle, exceto estagiários e
+monitores técnicos em seus respectivos horários de trabalho.
+É expressamente proibida a abertura de microcomputadores de qualquer sala.
+O aluno somente poderá utilizar as salas do laboratório abertas para uso livre, isto é, nos
+períodos em que a mesma não esteja sendo utilizada para aula ou reservada para curso.
+Todos os equipamentos deverão ser utilizados apenas para fins acadêmicos. É proibida a
+utilização para fins pessoais e comerciais.
+É proibida a utilização de jogos de computador, senão em aula específica.
+Qualquer tipo de material pornográfico (incluindo fotos sensuais) é expressamente
+proibido, estando o aluno que desrespeitar esta restrição sujeito às punições cabíveis.
+Restrições também são feitas quanto à utilização da Internet:
+A Internet deve ser utilizada para estudo e aprendizado geral. É proibida a utilização para
+visualizar, executar ou adquirir material pornográfico e jogos
+.
+Serviços
+#
+O Laboratório de Informática dispõe de microcomputadores com programas de diversas
+categorias instalados, acesso a mídias ópticas, microcomputadores equipados com sistema
+multimídia, rede local, serviço de impressão e cópia a laser, acesso à internet e serviço técnico
+especializado.
+Microcomputadores equipados com programas
+#
+É permitida a utilização dos programas instalados nos microcomputadores. A instalação
+de quaisquer outros programas, seja de uso comercial, avaliação ou livre (“shareware” ou
+“freeware”) é expressamente proibida para qualquer usuário. A necessidade do uso de
+qualquer programa diferente dos instalados nos equipamentos deve ser comunicada à
+coordenação do laboratório com antecedência ao uso para que a possibilidade seja
+estudada. É proibida a instalação de qualquer software sem a devida autorização por escrito
+de um funcionário do Laboratório de Informática.
+A alteração de configurações dos programas instalados também é proibida. Isso inclui as
+configurações dos sistemas operacionais.
+É proibido copiar os programas instalados nos microcomputadores, independente da
+procedência e da intenção do usuário para com o referido programa. Nos casos de programas de
+distribuição livre (“shareware” ou “freeware”) a cópia deve ser solicitada aos técnicos do LI, cujo
+trabalho será colocado na fila normal de tarefas internas e entregue em prazo determinado.
+Acesso a mídias magnéticas
+#
+Mídias ópticas (CDs e DVDs)
+#
+Nos microcomputadores que disporem de dispositivo de leitura óptica (CDROM/
+DVD-ROM) podem ser utilizados discos desde que sejam observados os seguintes
+pontos:
+A utilização com conteúdo sonoro só será permitida com utilização de fone de ouvido.
+Os programas em CD/DVD não devem ser instalados nos microcomputadores e qualquer
+arquivo ou referência feita ao CD/DVD que tenha sido gravada no microcomputador deve
+ser apagada.
+Deve-se executar um antivírus no dispositivo sempre antes de sua utilização.
+Dispositivos de memória removíveis (Pen-Drive)
+#
+Nos microcomputadores que disporem de portas de conexão USB podem ser
+utilizados como Pen-Drive, MP3/MP4 Players, HD externo e outros similares, desde que
+sejam observados os seguintes pontos:
+A utilização com conteúdo sonoro só será permitida com utilização de fone de ouvido.
+Os programas no dispositivo não devem ser instalados nos microcomputadores e qualquer
+arquivo ou referência feita ao dispositivo que tenha sido gravada no microcomputador
+deve ser apagada.
+Deve-se executar um antivírus no dispositivo sempre antes de sua utilização.
+Microcomputadores equipados com sistema multimídia
+#
+As caixas de som e microfones somente serão fornecidas para fins acadêmicos e com
+prévia solicitação.
+Rede local
+#
+Os microcomputadores do laboratório estão interligados por rede local o que torna
+possível o acesso a dispositivos de um micro ao outro, internet e direito de acesso a
+impressoras centralizadas.
+Para utilizar o laboratório o usuário acessa com a conta “aluno”, configurada para o uso
+em aula e demais atividades acadêmicas. Para segurança do usuário, tudo o que for efetuado
+ou acessado a partir do momento de sua entrada na rede poderá ser monitorado.
+Serviço de impressão, cópia e digitalização
+#
+O Laboratório de Informática possui impressora do tipo laser, habilitada para o serviço
+de impressão pela rede. Os usuários podem imprimir trabalhos ou serviços a partir de
+qualquer microcomputador do laboratório desde que conectados na rede, utilizando o
+sistema de impressão (ver item 6.5.1) via web através de suas contas pessoais.
+As impressões, cópias e digitalizações serão realizadas na ordem em que forem
+solicitadas no balcão de atendimento. Não será permitido o uso de tipos ou tamanhos de
+papel diferentes dos disponíveis.
+As impressões e cópia serão taxadas de acordo com valor estipulado pela faculdade e
+os créditos de impressão deverão ser previamente adquiridos na Tesouraria da faculdade.
+As impressões somente serão liberadas para o proprietário da conta e se o mesmo possuir
+crédito. A liberação de impressões para outro usuário que não seja o proprietário, só
+ocorreram mediante autorização prévia.
+As digitalizações serão enviadas para o e-mail ou mídia removível fornecidos pelo
+usuário e não serão cobradas.
+Sistema de impressão
+#
+A liberação dos trabalhos é feita no balcão de atendimento do Laboratório de
+informática, mediante comparecimento do proprietário da conta.
+O acesso ao sistema de impressão deve ser feito com o RA do aluno e a senha cadastrada para uso dos demais sistemas acadêmicos. Ao acessar o sistema, além de enviar seus trabalhos de impressão, o aluno tem acesso ao seu saldo, valores de impressão, histórico de transação, entre outras opções. As instruções para uso do sistema estão fixadas em todos os computadores do laboratório.
+Tela do sistema de impressão web
+Serviço de suporte técnico
+#
+Com a finalidade de esclarecer dúvidas relativas ao uso dos equipamentos e softwares
+instalados, o aluno deve procurar os técnicos do Laboratório de Informática.
+Para as aplicações mais específicas (CAD, uso da plotter, simulação de circuitos, etc.) o
+aluno conta com monitores das disciplinas também específicos que terão suas atividades em
+dias e horários determinados.
+Serviço de acesso a internet
+#
+O Laboratório de Informática disponibiliza acesso à internet com fins acadêmicos. O
+acesso é regido pelos termos descritos anteriormente e qualquer desrespeito às regras é
+passível de punição (ver item 3.3).
+Penalidades
+#
+No caso de inobservância das cláusulas constantes no item 3.3, a conta do usuário será desativada por 7 dias corridos. Em cada reincidência, o número de dias seguirá a tabela abaixo e, a partir da segunda reincidência, o usuário será encaminhado ao coordenador de curso após o vencimento do prazo de desativação, para que o mesmo autorize ou não a reativação da conta. O aluno poderá ter sua conta ativada provisoriamente durante horário de aula, desde que autorizado pelo professor da respectiva disciplina. A reativação anterior ao prazo estabelecido só poderá ser autorizada pelo Coordenador do Laboratório de Informática.
+No caso de dano aos equipamentos do LI na forma de vandalismo ou furto comprovados, é de responsabilidade do usuário indenizar todos os prejuízos causados. A conta será bloqueada até que os prejuízos sejam ressarcidos.
+No caso de comprovação de tentativa de invasão dos servidores da Facens ou no caso da utilização de um computador do Laboratório de Informática para tentar invadir outros servidores, a conta do usuário será permanentemente cancelada.
+O aluno cuja conta foi desativada não poderá utilizar as máquinas do Laboratório de Informática. Se este aluno utilizar a conta de um colega para acessar as máquinas, o colega será considerado infrator e sofrerá as mesmas punições supracitadas.
+Cumprimento do regulamento interno
+#
+Os alunos que desejarem utilizar o Laboratório de Informática automaticamente aceitam seu Regulamento Interno e em caso do não cumprimento de alguma norma, estarão sujeitos a advertência verbal ou escrita e suspensão do uso do Laboratório por prazo a ser determinado pela Coordenação de Cursos. Para os casos não descritos nesse Regulamento, caberá à equipe do Laboratório, juntamente com o Coordenador do Laboratório de Informática, a decisão de quais as medidas cabíveis.
+Sumário
+Regulamento
+Introdução
+Responsabilidade e Comportamento
+Responsabilidade
+Comportamento
+Horários
+Utilização
+Aulas de Laboratório
+Utilização individual
+Restrições e proibições
+Serviços
+Microcomputadores equipados com programas
+Acesso a mídias magnéticas
+Mídias ópticas (CDs e DVDs)
+Dispositivos de memória removíveis (Pen-Drive)
+Microcomputadores equipados com sistema multimídia
+Rede local
+Serviço de impressão, cópia e digitalização
+Sistema de impressão
+Serviço de suporte técnico
+Serviço de acesso a internet
+Penalidades
+Cumprimento do regulamento interno
+Acadêmico
+37
+Ambiente Virtual de Aprendizagem
+Componentes curriculares não publicados no Canvas
+Como favoritar os componentes curriculares no Canvas
+Como enviar uma Atividade ou Tarefa
+Como acessar componentes curriculares passados
+Acesso ao Fórum
+Aulas Virtuais
+Instalando e utilizando o Teams no computador
+Compartilhando a tela no Teams
+Como ativar legendas ao vivo no Teams
+Como acessar as Aulas Virtuais
+Acessando a aula do Teams pelo navegador
+Acessando a aula do Teams pelo aplicativo mobile
+Biblioteca
+Treinamentos Biblioteca
+Termo de disponibilização TCC/Monografia
+Submissão de UPX
+Submissão de TCC/Monografia
+Revistas Digitais
+Perguntas Frequentes – Biblioteca
+Calendário Acadêmico
+Horário das aulas – Graduação
+Calendário Acadêmico
+Portal Acadêmico
+Sistema de Avaliação
+Portal Acadêmico
+Declaração de Matrícula – Portal Acadêmico
+Aproveitamento de Estudos
+Acompanhar Solicitação/Protocolo – Portal Acadêmico
+Administrativo
+8
+Estágio
+Carreiras/Estágio
+Alumni Facens
+Financeiro
+Negociação Online
+Bolsas e Financiamentos
+Boletos e Pagamentos
+Rematrícula
+Protocolos de Rematrícula
+Protocolo Turmas Especiais
+Como fazer a sua rematricula
+Para o Aluno
+25
+Aplicativos Facens
+Acesso ao aplicativo Facens
+Acesso ao aplicativo Canvas Student
+Impressões
+Impressão pelo Celular/Computador
+Laboratórios
+Smart Campus Facens
+LIS – Laboratório de Inovação Social
+LINCE – Laboratório de Inovação e Competições Estudantis
+LIGA – Facens
+FABLAB
+Laboratórios de Informática
+Regulamento do Laboratório de Informática – LI
+Redefinição de senha – Acessos Facens
+Informações aos alunos – Laboratório de Informática
+Convênios de Software para Estudantes
+Como limpar o Cache do navegador
+Como conectar ao WI-FI Alunos
+Saiba Mais Facens
+Sustentabilidade Facens
+Smart Mall Facens
+Ouvidoria!
+NCursos
+IPFacens
+Indústria 4.0

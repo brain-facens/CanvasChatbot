@@ -1,4 +1,4 @@
-Acesso ao Fórum – Start Facens
+Impressão pelo Celular/Computador – Start Facens
 Ir para o conteúdo
 Início
 Acadêmico
@@ -35,27 +35,70 @@ Impressões
 Laboratórios
 Laboratórios de Informática
 Saiba Mais Facens
-Acesso ao Fórum
-O acesso ao fórum pode ser feito pela guia lateral do Canvas ao clicar em
-Fóruns
-.
-Informações gerais
+Impressão pelo Celular/Computador
+É possivel realizar a impressão de arquivos no Laboratório de Informática (Prédio A), para realizar o envio do arquivo, acesse o link:
+Sistema de Impressão
+Inserir saldo
 #
-Os fóruns no Canvas permitem a interação entre estudantes e instrutores por meio de discussões online.
-Responder e Comentar:
-Estudantes podem responder aos tópicos de discussão e comentar nas respostas de outros alunos.
-Organização:
-As discussões podem ser organizadas por temas, tópicos ou semanas.
-Fórum de Apresentação
-– Apresentação ao professor e colegas da turma.
-Dúvidas Operacionais
-– Dúvidas administrativas ou de acesso.
-Dúvidas de Conteúdo
-– Esclarecimento de dúvidas do conteúdo da disciplina.
-Fórum Desafio
-– Questão desafio sobre algum conteúdo da disciplina.
+Para inserir saldo no seu RA, compareça a Tesouraria (Prédio E) para carregar o valor solicitado.
+Valores
+#
+A3 P/B – R$ 0,70
+A3 Color – R$ 1,50
+A4 P/B – R$ 0,40
+A4 Color – R$ 0,80
+*Valores sujeito a alteração, consultar com a Tesouraria.
+Acesso ao sistema
+#
+1- Entre com o seu
+RA
+e
+senha do Canvas
+.
+2- Clique em
+Impressão Web
+.
+3-
+Submeter um trabalho
+.
+4- Selecione a
+Opção de impressão
+e
+Impressora
+.
+Observações:
+#
+PB – Preto e Branco
+Color – Colorido
+Biblioteca: Impressoras localizadas na Biblioteca (Prédio H)
+Laboratório: Impressoras localizadas no Lab. Informática (Prédio A)
+5- Informe o níumero de
+cópias
+do arquivo.
+6- Clique em
+Upload Documento
+.
+7- Submeta o arquivo em
+Upload do computador
+que deseja imprimir e finalize em
+Envio e Finalização
+.
+Atenção: Antes de submeter o arquivo, verifique se o tipo de arquivo é compativel para impressão.
+Retirada do arquivo impresso
+#
+Com o arquivo no status
+Suspendo em uma fila
+, compareça ao LI ou Biblioteca (Conforme selecionado no primeiro passo) para liberar a impressão e retirar o arquivo.
+Observações
+#
+O sistema de impressão apenas funciona dentro do Campus da Facens para alunos logados no              WI-FI-Alunos e/ou diretamente pelos computadores da Facens.
 Sumário
-Informações gerais
+Inserir saldo
+Valores
+Acesso ao sistema
+Observações:
+Retirada do arquivo impresso
+Observações
 Acadêmico
 37
 Ambiente Virtual de Aprendizagem
