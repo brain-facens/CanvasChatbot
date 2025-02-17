@@ -3,3 +3,5 @@ venv/
 .streamlit/
 canvas.db
 *.dump
+package/
+package.zip
