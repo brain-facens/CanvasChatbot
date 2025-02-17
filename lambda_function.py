@@ -1,50 +1,57 @@
-import sys
 import os
-import traceback
-
-sys.path.append(os.path.abspath("./package"))
-
 import json
-import logging
+from openai import OpenAI
 import pgsql
 from datetime import datetime
-
+import logging
 import requests
-import openai
+
+client = OpenAI()
+logger = logging.getLogger(__name__)
 
 user_name = os.getenv("DB_USER")
 password = os.getenv("DB_PASSWORD")
 rds_proxy_host = os.getenv("DB_HOST")
 db_name = os.getenv("DB_NAME")
-
-logger = logging.getLogger(__name__)
-
-TOKEN = os.getenv("TOKEN_CANVAS")
 canvas_api_url = os.getenv("CANVAS_API_URL")
+TOKEN = os.getenv("TOKEN_CANVAS")
 headers = {"Authorization": f"Bearer {TOKEN}"}
 
-logger = logging.getLogger(__name__)
+def get_files(path="./scraping"):
+    """ Obtém os arquivos do diretório fornecido. """
+    if not os.path.exists(path):
+        return []
+    
+    file_paths = []
+    for f in os.listdir(path):
+        full_path = os.path.join(path, f)
+        if os.path.isfile(full_path):
+            file_paths.append(full_path)
+    return file_paths
 
+def create_assistant():
+    """ Cria um assistente OpenAI especializado na Facens. """
+    description = "Você é um assistente especializado no uso de ferramentas online do Centro Universitário Facens."
 
-def get_stacktrace_str() -> str:
-    ex_type, ex_value, ex_traceback = sys.exc_info()
+    instructions = """
+    Responda dúvidas sobre plataformas acadêmicas, sistemas de gestão, ambientes virtuais de aprendizagem 
+    e demais serviços digitais oferecidos pela Facens. 
+    Suas respostas devem ser baseadas exclusivamente nos documentos fornecidos. 
+    Se não encontrar a informação necessária nos documentos, informe educadamente ao usuário que não pode ajudá-lo.
+    """
 
-    # Extract unformatter stack traces as tuples
-    trace_back = traceback.extract_tb(ex_traceback)
+    assistant = client.beta.assistants.create(
+        name="Educational Assistant",
+        description=description,
+        instructions=instructions,
+        model="gpt-4o-mini",
+        tools=[{"type": "file_search"}],
+    )
 
-    # Format stacktrace
-    stack_trace = list()
+    return assistant.id
 
-    for trace in trace_back:
-        stack_trace.append(
-            "File : %s , Line : %d, Func.Name : %s, Message : %s"
-            % (trace[0], trace[1], trace[2], trace[3])
-        )
-
-    return f"Exception type: {ex_type}, Exception Message: {ex_value}, stack trace: {stack_trace}"
-
-
-def Insert_chat_history(username: str, message: str, chat_response: str, date: datetime):
+def insert_chat_history(username: str, message: str, chat_response: str):
+    date = datetime.now()
     try:
         with pgsql.Connection(
             address=(rds_proxy_host, 5432),
@@ -68,339 +75,109 @@ def Insert_chat_history(username: str, message: str, chat_response: str, date: d
                 );
                 """
             )
-
             with db.prepare(insert_query) as insert_message:
                 insert_message(username, message, chat_response, date)
                 logger.info("Mensagem inserida com sucesso")
-                return
     except Exception as e:
-        raise Exception(f"Error inserting document: {str(e)}")
+        logger.error(f"Erro ao inserir mensagem no banco: {str(e)}")
 
+def process_files_and_run_assistant(assistant_id, query):
+    """ Faz o upload dos arquivos e executa a pesquisa no assistente OpenAI. """
+    
+    # Criando um Vector Store
+    vector_store = client.beta.vector_stores.create(name="Facens_VectorStore")
+    
+    file_paths = get_files()
+    if not file_paths:
+        return {"error": "Nenhum arquivo encontrado para upload."}
+    
+    files_streams = [open(file_path, "rb") for file_path in file_paths]
 
-def parse_date_friendly(date_string):
-    """
-    Converte uma data amigável, como '31 de janeiro', para o formato ISO (YYYY-MM-DD).
-    Se a data não for válida, retorna None.
+    file_batch = client.beta.vector_stores.file_batches.upload_and_poll(
+        vector_store_id=vector_store.id,
+        files=files_streams 
+    )
 
-    Args:
-        date_string (str): Data fornecida pelo usuário.
+    if file_batch.status != "completed":
+        return {"error": "Falha ao processar arquivos no Vector Store."}
 
-    Returns:
-        str: Data em formato ISO, ou None se a conversão falhar.
-    """
+    # Atualizando o assistente para usar o Vector Store
+    assistant = client.beta.assistants.update(
+        assistant_id=assistant_id,
+        tool_resources={"file_search": {"vector_store_ids": [vector_store.id]}},
+    )
+
+    # Criando uma thread para a interação
+    thread = client.beta.threads.create()
+
+    # Enviando a consulta do usuário
+    message = client.beta.threads.messages.create(
+        thread_id=thread.id,
+        role="user",
+        content=query,
+    )
+
+    # Executando a consulta
+    run = client.beta.threads.runs.create_and_poll(
+        thread_id=thread.id,
+        assistant_id=assistant.id
+    )
+
+    # Obtendo a resposta do assistente
+    messages = list(client.beta.threads.messages.list(thread_id=thread.id, run_id=run.id))
+    
+    if messages:
+        response_content = messages[0].content[0].text
+        return {"response": response_content.value}
+
+    return {"error": "Nenhuma resposta encontrada."}
+
+def make_request(endpoint, params=None):
     try:
-        # Mapeamento dos meses em português para números
-        meses = {
-            "janeiro": "01",
-            "fevereiro": "02",
-            "março": "03",
-            "abril": "04",
-            "maio": "05",
-            "junho": "06",
-            "julho": "07",
-            "agosto": "08",
-            "setembro": "09",
-            "outubro": "10",
-            "novembro": "11",
-            "dezembro": "12",
-        }
-
-        # Divide a string de entrada
-        partes = date_string.lower().strip().split(" de ")
-        if len(partes) != 2:
-            raise ValueError("Formato de data inválido")
-
-        dia = partes[0]
-        mes = meses.get(partes[1])
-        if not dia.isdigit() or not mes:
-            raise ValueError("Dia ou mês inválido")
-
-        # Retorna a data no formato ISO
-        ano_atual = datetime.now().year
-        return f"{ano_atual}-{mes}-{int(dia):02d}"
-    except Exception as e:
-        logger.error(f"Erro ao interpretar a data '{date_string}': {str(e)}")
+        url = f"{canvas_api_url}{endpoint}"
+        response = requests.get(
+            url, 
+            headers=headers, 
+            params=params,
+            timeout=30
+        )
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        logger.error(f"Request failed: {str(e)}")
+        return None
+    except ValueError as e:
+        logger.error(f"Failed to parse response: {str(e)}")
         return None
 
+def get_username():
+    user_data = make_request("/users/self")
+    return user_data.get("name") if user_data else None
 
-class Request:
-    def __init__(self):
-        self.params = None
-        self.course_id = None
-        self.module_id = None
-
-    def make_request(self, endpoint, params=None):
-        try:
-            url = f"{canvas_api_url}{endpoint}"
-
-            # Add timeout to prevent hanging
-            response = requests.get(url, headers=headers, params=params, timeout=30)
-
-            # Raise for bad status codes
-            response.raise_for_status()
-
-            return response.json()
-
-        except Exception as e:
-            print(f"Request failed: {str(e)}")
-            return None
-        # except ValueError as e:  # JSON decode error
-        #     print(f"Failed to parse response: {str(e)}")
-        #     return None
-
-    def get_calendar(self):
-        headers = {"Authorization": f"Bearer {TOKEN}"}
-        response = requests.get(
-            f"{canvas_api_url}/calendar_events?start_date=2025-01-01&end_date=2025-12-31",
-            headers=headers,
-        )
-        if response.status_code == 200:
-            user_data = response.json()
-            return user_data
-
-    def get_calendar_events(self, title_filter=None, date_filter=None):
-        try:
-            events = self.get_calendar()
-
-            # Filtra os eventos pelo título ou pela data, se fornecidos
-            filtered_events = []
-            for event in events:
-                title_matches = (
-                    title_filter.lower() in event["title"].lower()
-                    if title_filter
-                    else True
-                )
-                date_matches = date_filter in event["start_at"] if date_filter else True
-
-                if title_matches and date_matches:
-                    filtered_events.append(event)
-
-            return filtered_events
-
-        except Exception as e:
-            logger.error(f"Erro ao buscar eventos do calendário: {str(e)}")
-            return []
-
-    def get_username(self):
-        headers = {"Authorization": f"Bearer {TOKEN}"}
-        response = requests.get(f"{canvas_api_url}/users/self", headers=headers)
-        if response.status_code == 200:
-            user_data = response.json()
-            return user_data.get("name")
-
-    def list_courses(self, params=None):
-        return self.make_request("/courses", params)
-
-    def get_course_details(self, course_id, params=None):
-        return self.make_request(f"/courses/{course_id}", params)
-
-    def list_modules(self, course_id, params=None):
-        return self.make_request(f"/courses/{course_id}/modules", params)
-
-    def list_module_items(self, course_id, module_id, params=None):
-        return self.make_request(
-            f"/courses/{course_id}/modules/{module_id}/items", params
-        )
-
-    def get_courses(self):
-        try:
-            return self.list_courses(params={"per_page": 5})
-        except Exception as e:
-            print(f"Error fetching courses: {e}")
-            return str(e)
-
-    def get_all_modules(self, courses):
-        all_modules = []
-        for course in courses:
-            course_modules = self.list_modules(
-                course_id=course["id"], params={"per_page": 5}
-            )
-            if course_modules:
-                for module in course_modules:
-                    module["course_name"] = course["name"]
-                    all_modules.append(module)
-        return all_modules
-
-    def handle_user_message(self, user_message, courses, all_modules):
-        if user_message.lower().startswith("modulos do curso"):
-            course_name = user_message[len("módulos do curso ") :].strip()
-            selected_course = next(
-                (
-                    course
-                    for course in courses
-                    if course["name"].lower() == course_name.lower()
-                ),
-                None,
-            )
-            if selected_course:
-                course_modules = [
-                    module
-                    for module in all_modules
-                    if module["course_name"].lower() == course_name.lower()
-                ]
-                if course_modules:
-                    modules_list = "\n".join(
-                        [f"- {module['name']}" for module in course_modules]
-                    )
-                    logger.info(
-                        f"Módulos do curso '{selected_course['name']}':\n{modules_list}"
-                    )
-                    return {
-                        "message": f"Módulos do curso '{selected_course['name']}':\n{modules_list}"
-                    }, 200
-                else:
-                    logger.info(
-                        f"Nenhum módulo encontrado para o curso '{selected_course['name']}'."
-                    )
-                    return {
-                        "not found": f"Nenhum módulo encontrado para o curso '{selected_course['name']}'."
-                    }, 204
-            else:
-                logger.info("Curso não encontrado")
-                return {"not found": "Curso não encontrado"}, 204
-        current_datetime = datetime.now()
-        username_logged = self.get_username()
-        if user_message.lower().startswith("aulas no calendário"):
-            # Extrai a parte do título e da data
-            parts = user_message[len("aulas no calendário") :].strip().split(" no dia ")
-            title_filter = parts[0].strip() if len(parts) > 0 else None
-            date_friendly = parts[1].strip() if len(parts) > 1 else None
-
-            # Converte a data amigável para o formato ISO
-            date_filter = parse_date_friendly(date_friendly) if date_friendly else None
-
-            # Busca eventos no calendário
-            events = self.get_calendar_events(
-                title_filter=title_filter, date_filter=date_filter
-            )
-
-            if events:
-                # Formata a resposta com os eventos encontrados
-                response = "\n".join(
-                    [
-                        f"- {event['title']} em {event['start_at']} (local: {event.get('location_name', 'não especificado')})"
-                        for event in events
-                    ]
-                )
-                Insert_chat_history(
-                    username=username_logged,
-                    message=user_message,
-                    chat_response=f"Aulas encontradas:\n{response}",
-                    date=current_datetime,
-                )
-                return {"message": f"Aulas encontradas:\n{response}"}, 200
-            else:
-                response = "Nenhuma aula encontrada com os critérios especificados."
-                Insert_chat_history(
-                    username=username_logged,
-                    message=user_message,
-                    chat_response=response,
-                    date=current_datetime,
-                )
-                return {"not found": response}, 204
-        return None, None
-
-
-# Função para criar um contexto inicial com a lista de cursos
-def prepare_initial_prompt(courses, modules):
-    course_list = "\n".join([f"- {course['name']}" for course in courses])
-    modules_list = "\n".join(
-        [f"- {module['name']} (Curso: {module['course_name']})" for module in modules]
-    )
-
-    return f"""
-        Você é um assistente que ajuda estudantes a entenderem e gerenciarem seus cursos no Canvas LMS.
-        Aqui estão os cursos disponíveis no Canvas LMS:
-        {course_list}
-        
-        Aqui estão os módulos disponíveis nos cursos no Canvas LMS:
-        {modules_list}
-        
-        **Nota importante:** Se você não encontrar a informação solicitada ou ela não existir, responda de forma clara que não encontrou a informação ou que ela não está disponível. 
-        Como posso ajudá-lo hoje?
-    """
-
-
-def interact_with_chatbot(user_message, chat_history):
-    # Adicionar mensagem do usuário ao histórico
-    chat_history.append({"role": "user", "content": user_message})
-
-    # Fazer a chamada para a API da OpenAI
-    client = openai.OpenAI()
-    response = client.chat.completions.create(
-        model="gpt-4",
-        messages=chat_history,
-    )
-
-    # Extrair a resposta
-    assistant_message = (
-        str(response.choices[0].message.content).encode().decode("utf-8")
-    )
-
-    # Adicionar a resposta ao histórico
-    chat_history.append({"role": "assistant", "content": assistant_message})
-
-    print(f"Resposta do assistente: {assistant_message}")
-    print("Histórico do chat:")
-    print(chat_history)
-
-    return {"message": assistant_message}, 200
-
-
-def build_response_v1(response, status_code):
-    print("Sending back the response")
-    print(json.dumps(response))
-
-    generated_response = {
-        "statusCode": status_code,
-        "headers": {"Content-Type": "application/json"} if response else {},
-        "body": json.dumps(response) if response else "",
-        "cookies": [],
-        "isBase64Encoded": False,
-    }
-
-    print(json.dumps(generated_response))
-
-    return generated_response
-
+username = get_username()
 
 def handler(event, context):
-    try:
-        req = Request()
-        courses = req.get_courses()
-        all_modules = req.get_all_modules(courses)
-        print(event)
+    """ Função principal para ser executada na AWS Lambda. """
+    
+    # Obtendo a consulta do evento (pode ser via API Gateway)
+    body = json.loads(event.get("body", "{}"))
+    query = body.get("query", "")
 
-        if not event["body"]:
-            return build_response_v1(
-                {"error": "Corpo da requisição não fornecido"}, 400
-            )
+    if not query:
+        return {
+            "statusCode": 400,
+            "body": json.dumps({"error": "Nenhuma consulta fornecida."})
+        }
 
-        user_message = json.loads(event["body"]).get("user_message")
+    # ID do assistente, pode ser gerado uma vez e armazenado
+    assistant_id = "asst_VWFEqFIlOolIqD5OxQZSbLT1"
 
-        if not user_message:
-            return build_response_v1(
-                {"error": "Mensagem do usuário não fornecida"}, 400
-            )
+    # Processa os arquivos e executa a pesquisa no assistente
+    response_data = process_files_and_run_assistant(assistant_id, query)
 
-        if courses or all_modules:
-            initial_prompt = prepare_initial_prompt(courses, all_modules)
-            chat_history = [{"role": "system", "content": initial_prompt}]
+    insert_chat_history(username=username, message=query, chat_response=response_data)
 
-            # Processar mensagem do usuário
-            response, status_code = req.handle_user_message(
-                user_message, courses, all_modules
-            )
-            if response:
-                return build_response_v1(response, status_code)
-
-            # Resposta do chatbot
-            response, status_code = interact_with_chatbot(user_message, chat_history)
-            return build_response_v1(response, status_code)
-        else:
-            logger.info("Nenhum curso encontrado")
-            return build_response_v1({"not found": "Nenhum curso encontrado"}, 404)
-    except Exception as e:
-        logger.error(f"Erro: {str(e)}")
-        print(get_stacktrace_str())
-        return build_response_v1({"error": f"Erro interno: {str(e)}"}, 500)
+    return {
+        "statusCode": 200,
+        "body": json.dumps(response_data)
+    }
