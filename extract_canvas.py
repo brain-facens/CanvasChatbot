@@ -66,7 +66,11 @@ def list_module_items(course_id, module_id, params=None):
     return make_request(f"/api/v1/courses/{course_id}/modules/{module_id}/items", params)
 
 def get_courses():
-    return list_courses(params={"per_page": 5})
+    courses = list_courses(params={"per_page": 5})
+    
+    if isinstance(courses, dict):  # Se for um único curso, converta para lista
+        courses = [courses]
+    return courses if isinstance(courses, list) else []
 
 def get_all_modules(courses):
     all_modules = []
@@ -80,22 +84,21 @@ def get_all_modules(courses):
 
 def save_calendar_data():
     calendar_data = get_calendar_events()
-    with open("./scraping/calendar_data.txt", "w") as file:
+    with open("./scraping/calendar_data.txt", "a") as file:
         for event in calendar_data:
             file.write(str(event))
 
 def save_modules_data():
     courses = get_courses()
     modules_data = get_all_modules(courses)
-    with open("./scraping/modules_data.txt", "w") as file:
+    with open("./scraping/modules_data.txt", "a") as file:
         for module in modules_data:
-            file.write(str(module))
+            file.write(f"Módulos: {str(module)}")
 
 def save_courses_data():
     courses_data = get_courses()
-    with open("./scraping/courses_data.txt", "w") as file:
-        for course in courses_data:
-            file.write(str(course))
+    with open("./scraping/courses_data.txt", "a") as file:
+        file.write(f"Cursos: {str(courses_data)}")
 
 if __name__ == "__main__":
     save_calendar_data()
